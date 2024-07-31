@@ -1,10 +1,10 @@
 export const categories = [
     {
-        name: "Fresh Produce",
+        name: "veggies",
         image: "images/Categories Images/fresh_products.jpg"
     },
     {
-        name: "Dairy Products",
+        name: "Dairy",
         image: "images/Categories Images/dairy_products.webp"
     },
     {
@@ -36,7 +36,7 @@ export const categories = [
         image: "images/Categories Images/personal_care.webp"
     },
     {
-        name: "Baby Products",
+        name: "Baby",
         image: "images/Categories Images/baby_products.webp"
     },
     {
