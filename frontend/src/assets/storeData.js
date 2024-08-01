@@ -1,6 +1,6 @@
 export const categories = [
     {
-        name: "veggies",
+        name: "Veggies",
         image: "images/Categories Images/fresh_products.jpg"
     },
     {

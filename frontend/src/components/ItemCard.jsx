@@ -1,18 +1,20 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { StoreContext } from '../Context/StoreContext';
 
-const ItemCard = ({ name, image, description, price }) => {
+const ItemCard = ({ _id, name, image, description, price }) => {
 
-    const [itemCount, setItemCount] = useState(0);
+
+    const { cartItems, addCartItem, removeCartItems } = useContext(StoreContext);
     return (
         <div className='bg-white flex flex-col rounded-3xl pb-4 overflow-hidden drop-shadow-[2px_2px_2px_#d8d8d8]'>
             <div className='bg-white relative'>
                 <img className='min-w-full min-h-[200px] max-h-[200px] object-cover ' src={image} alt="" />
-                {!itemCount
-                    ? <img onClick={() => setItemCount(prev => prev + 1)} className=' p-2 bottom-2 bg-lime-500 cursor-pointer rounded-full right-4 absolute' src="svg/add_black.svg" alt="add" />
+                {!cartItems[_id]
+                    ? <img onClick={() => addCartItem(_id)} className=' p-2 bottom-2 bg-lime-500 cursor-pointer rounded-full right-4 absolute' src="svg/add_black.svg" alt="add" />
                     : <div className='absolute flex gap-2 px-2 py-1 rounded-full right-4 bottom-2 bg-white'>
-                        <img onClick={() => setItemCount(prev => prev - 1)} className='cursor-pointer scale-90' src="svg/subtract_red.svg" alt="subtract" />
-                        <p className='font-medium'>{itemCount}</p>
-                        <img onClick={() => setItemCount(prev => prev + 1)} className='cursor-pointer scale-90' src="svg/add_green.svg" alt="add" />
+                        <img onClick={() => removeCartItems(_id)} className='cursor-pointer scale-90' src="svg/subtract_red.svg" alt="subtract" />
+                        <p className='font-medium'>{cartItems[_id]}</p>
+                        <img onClick={() => addCartItem(_id)} className='cursor-pointer scale-90' src="svg/add_green.svg" alt="add" />
                     </div>
                 }
             </div>
