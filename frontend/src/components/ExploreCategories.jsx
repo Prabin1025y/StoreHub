@@ -1,5 +1,5 @@
 import React from 'react'
-import { categories } from '../assets/categories'
+import { categories } from '../assets/storeData';
 
 const ExploreCategories = ({ currentCategory, setcurrentCategory }) => {
     // const activeTailwindClass = ""
