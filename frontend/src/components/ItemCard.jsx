@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { StoreContext } from '../Context/StoreContext';
+import { Images, SVG } from '../assets/assets';
 
 const ItemCard = ({ _id, name, image, description, price }) => {
 
@@ -10,17 +11,17 @@ const ItemCard = ({ _id, name, image, description, price }) => {
             <div className='bg-white relative'>
                 <img className='min-w-full min-h-[200px] max-h-[200px] object-cover ' src={image} alt="" />
                 {!cartItems[_id]
-                    ? <img onClick={() => addCartItem(_id)} className=' p-2 bottom-2 bg-lime-500 cursor-pointer rounded-full right-4 absolute' src="svg/add_black.svg" alt="add" />
+                    ? <img onClick={() => addCartItem(_id)} className=' p-2 bottom-2 bg-lime-500 cursor-pointer rounded-full right-4 absolute' src={SVG.add_black} alt="add" />
                     : <div className='absolute flex gap-2 px-2 py-1 rounded-full right-4 bottom-2 bg-white'>
-                        <img onClick={() => removeCartItems(_id)} className='cursor-pointer scale-90' src="svg/subtract_red.svg" alt="subtract" />
+                        <img onClick={() => removeCartItems(_id)} className='cursor-pointer scale-90' src={SVG.subtract_red} alt="subtract" />
                         <p className='font-medium'>{cartItems[_id]}</p>
-                        <img onClick={() => addCartItem(_id)} className='cursor-pointer scale-90' src="svg/add_green.svg" alt="add" />
+                        <img onClick={() => addCartItem(_id)} className='cursor-pointer scale-90' src={SVG.add_green} alt="add" />
                     </div>
                 }
             </div>
             <div className='flex items-center px-6 py-3 text-2xl font-medium text-rose-950 justify-between'>
                 <h3>{name}</h3>
-                <img className='h-8' src="images/4star.png" alt="" />
+                <img className='h-8' src={Images.four_star} alt="" />
             </div>
             <div className='flex flex-grow flex-col justify-between gap-1'>
                 <p className='px-6 py-3 text-rose-900'>{description}</p>

@@ -5,12 +5,13 @@ import { Route, Routes } from 'react-router-dom'
 import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/Placeorder/PlaceOrder'
 import Footer from './components/Footer'
+import Login from './components/Login'
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [showLoginForm, setShowLoginForm] = useState(false);
   return (
     <>
-      <Navbar />
+      {showLoginForm && <Login setShowLoginForm={setShowLoginForm} />}
+      <Navbar setShowLoginForm={setShowLoginForm} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart />} />

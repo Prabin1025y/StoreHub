@@ -1,8 +1,9 @@
 import React from 'react'
+import { SVG } from '../assets/assets'
 
 const Footer = () => {
   return (
-    <div className='bg-gray-800'>
+    <div id='contact' className='bg-gray-800'>
       <div className='flex flex-col md:flex-row gap-5 2xl:gap-20 py-10 px-10 lg:px-32 2xl:px-48 mt-20 font-roboto'>
         <div className='flex-[2]'>
           <h3 className='text-3xl font-bold font-boogaloo tracking-wide text-red-500'>StoreHUB.</h3>
@@ -26,9 +27,9 @@ const Footer = () => {
             <li className='cursor-pointer'>contact@storehub.com</li>
           </ul>
           <div className='flex gap-5 mt-4'>
-            <img className='cursor-pointer' src="svg/facebook.svg" alt="" />
-            <img className='cursor-pointer' src="svg/instagram.svg" alt="" />
-            <img className='cursor-pointer' src="svg/X.svg" alt="" />
+            <img className='cursor-pointer' src={SVG.facebook} alt="facebook" />
+            <img className='cursor-pointer' src={SVG.instagram} alt="instagram" />
+            <img className='cursor-pointer' src={SVG.x} alt="x" />
           </div>
         </div>
       </div>
