@@ -1,10 +1,12 @@
 import React, { useContext } from 'react'
 import { StoreContext } from '../../Context/StoreContext'
 import { SVG } from '../../assets/assets';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
   const { storeItems, cartItems, addCartItem, removeCartItems, getTotalCartAmount } = useContext(StoreContext);
+  const navigate = useNavigate();
 
   let deliveryCharge;
   deliveryCharge = getTotalCartAmount() === 0 ? 0 : 2;
@@ -50,7 +52,7 @@ const Cart = () => {
         <h2 className='my-3 font-bold text-2xl text-rose-900'>Cart Total</h2>
         <div className='my-2 text-rose-800 flex justify-between'>
           <p>Subtotal</p>
-          <p className='font-medium'>${getTotalCartAmount()}</p>
+          <p className='font-medium'>${getTotalCartAmount().toFixed(2)}</p>
         </div>
         <hr />
         <div className=' my-2 text-rose-800 flex justify-between'>
@@ -60,10 +62,10 @@ const Cart = () => {
         <hr />
         <div className=' my-2 text-rose-800 flex justify-between'>
           <p className='font-medium'>Total</p>
-          <p className='font-medium'>${getTotalCartAmount() + deliveryCharge}</p>
+          <p className='font-medium'>${(getTotalCartAmount() + deliveryCharge).toFixed(2)}</p>
         </div>
         <hr />
-        <button className=' relative left-1/2 -translate-x-1/2 my-5  p-2 rounded-md hover:scale-105 transition-all duration-300 bg-rose-800 text-white w-1/2'>Checkout</button>
+        <button onClick={() => getTotalCartAmount() === 0 ? alert("The cart is empty") : navigate("/order")} className=' relative left-1/2 -translate-x-1/2 my-5  p-2 rounded-md hover:scale-105 transition-all duration-300 bg-rose-800 text-white w-1/2'>Checkout</button>
       </div>
       <div className='md:w-1/2 flex flex-col items-center gap-3'>
         <h2 className='my-3 font-bold text-2xl text-rose-900'>Promo Code</h2>
