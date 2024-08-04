@@ -13,9 +13,9 @@ const ItemCard = ({ _id, name, image, description, price }) => {
                 {!cartItems[_id]
                     ? <img onClick={() => addCartItem(_id)} className=' p-2 bottom-2 bg-lime-500 cursor-pointer rounded-full right-4 absolute' src={SVG.add_black} alt="add" />
                     : <div className='absolute flex gap-2 px-2 py-1 rounded-full right-4 bottom-2 bg-white'>
-                        <img onClick={() => removeCartItems(_id)} className='cursor-pointer scale-90' src={SVG.subtract_red} alt="subtract" />
+                        <img onClick={() => removeCartItems(_id)} className='cursor-pointer scale-90' src={SVG.subtract_red_duo} alt="subtract" />
                         <p className='font-medium'>{cartItems[_id]}</p>
-                        <img onClick={() => addCartItem(_id)} className='cursor-pointer scale-90' src={SVG.add_green} alt="add" />
+                        <img onClick={() => addCartItem(_id)} className='cursor-pointer scale-90' src={SVG.add_green_duo} alt="add" />
                     </div>
                 }
             </div>

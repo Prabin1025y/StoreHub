@@ -5,7 +5,7 @@ const Login = ({ setShowLoginForm }) => {
 
     const [loginState, setLoginState] = useState("signup")
     return (
-        <div className='bg-[#000000bf] absolute size-full z-20 flex justify-center items-center'>
+        <div className='bg-[#000000bf] fixed size-full z-20 flex justify-center items-center'>
             <form className='h-fit w-1/4 min-w-fit bg-white flex flex-col p-10 rounded-xl relative gap-5'>
                 <h1 className='font-roboto text-xl text-rose-900 text-center font-bold'>{loginState === "login" ? "Log In" : "Create An Account"}</h1>
                 {loginState === "signup" && <input className='outline-none border border-rose-900 rounded-md p-2 w-full' type="text" placeholder='Full Name' required />}

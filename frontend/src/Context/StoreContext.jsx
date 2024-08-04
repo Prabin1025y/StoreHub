@@ -5,14 +5,20 @@ import { storeItems } from "../assets/storeData";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-    
+
     const [cartItems, setCartItems] = useState({});
 
-    useEffect(() => {
-        console.log(cartItems);
-    }, [cartItems])
-    
-    
+    const getTotalCartAmount = () => {
+        let totalCartAmount = 0;
+        for (const itemId in cartItems) {
+            if (cartItems[itemId] > 0) {
+                let itemInStore = storeItems.find((item) => item._id === itemId);
+                totalCartAmount += itemInStore.price * cartItems[itemId];
+            }
+        }
+        return totalCartAmount;
+    }
+
     const addCartItem = (_id) => {
         if (!cartItems[_id]) {
             // console.log(_id);
@@ -22,19 +28,20 @@ const StoreContextProvider = (props) => {
             setCartItems(prev => ({ ...prev, [_id]: prev[_id] + 1 }));
         }
     }
-    
+
     const removeCartItems = (_id) => {
         setCartItems(prev => ({ ...prev, [_id]: prev[_id] - 1 }));
         console.log("removing", cartItems);
     }
-    
-    const contextValue = { 
+
+    const contextValue = {
         storeItems,
         cartItems,
         setCartItems,
         addCartItem,
-        removeCartItems
-     }
+        removeCartItems,
+        getTotalCartAmount
+    }
 
     return (
         <StoreContext.Provider value={contextValue}>

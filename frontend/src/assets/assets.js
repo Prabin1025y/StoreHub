@@ -7,6 +7,9 @@ import subtract_red from '/svg/subtract_red.svg';
 import facebook from '/svg/facebook.svg';
 import instagram from '/svg/instagram.svg';
 import x from '/svg/X.svg';
+import add_green_duo from '/svg/add_green_duo.svg';
+import subtract_red_duo from '/svg/subtract_red_duo.svg';
+import empty_cart from '/svg/empty_cart.svg';
 
 import four_star from '/images/4star.png';
 import play_store from '/images/playstore.png';
@@ -23,7 +26,10 @@ export const SVG = {
     subtract_red,
     facebook,
     instagram,
-    x
+    x,
+    add_green_duo,
+    subtract_red_duo,
+    empty_cart
 }
 
 export const Images = {
