@@ -5,6 +5,7 @@ import parcel from "/images/parcel.svg";
 import profile from "/images/profile.svg";
 import upload from "/images/upload.svg";
 import list from "/images/list.svg";
+import deleteIcon from "/images/delete.svg";
 
 export const images = {
     logo
@@ -16,5 +17,6 @@ export const svgs = {
     parcel,
     profile,
     upload,
-    list
+    list,
+    deleteIcon
 }
