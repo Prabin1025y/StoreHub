@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
-const foodSchema = new mongoose.Schema({
-    foodName: { type: String, required: true },
+const productSchema = new mongoose.Schema({
+    productName: { type: String, required: true },
     description: { type: String, required: true },
     image: { type: String, required: true },
     price: { type: Number, required: true },
@@ -11,8 +11,8 @@ const foodSchema = new mongoose.Schema({
 
 
 //models are used to create and store data using the specified schema
-const foodModel = mongoose.models.foodModel || mongoose.model("foodModel", foodSchema);
+const productModel = mongoose.models.productModel || mongoose.model("productModel", productSchema);
 //same as
 //const foodModel = mongoose.models.foodModel ? mongoose.models.foodModel : mongoose.model("foodModel", foodSchema);
 
-export default foodModel;
+export default productModel;

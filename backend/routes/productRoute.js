@@ -1,9 +1,9 @@
 import express from "express";
 import multer from "multer";
-import { addFood, listFood, removeFood } from "../controllers/foodController.js";
+import { addProduct, listProducts, removeProduct } from "../controllers/productController.js";
 
 // creates a router handler used to hit post and get requests
-const foodRouter = express.Router();
+const productRouter = express.Router();
 
 
 //Image Storage system
@@ -21,9 +21,9 @@ const upload = multer({ storage: storage });
 
 //hitting post request using router and middleware upload
 //upload.single function is getting the data from form of body from formfield named "image" , process it and store in desired location
-foodRouter.post("/add", upload.single("image"), addFood);
-foodRouter.get("/list", listFood);
-foodRouter.post("/remove", removeFood);
+productRouter.post("/add", upload.single("image"), addProduct);
+productRouter.get("/list", listProducts);
+productRouter.post("/remove", removeProduct);
 
 
-export default foodRouter;
+export default productRouter;
