@@ -6,10 +6,13 @@ import Cart from './pages/Cart/Cart'
 import PlaceOrder from './pages/Placeorder/PlaceOrder'
 import Footer from './components/Footer'
 import Login from './components/Login'
+import { ToastContainer } from "react-toastify"
+
 function App() {
   const [showLoginForm, setShowLoginForm] = useState(false);
   return (
     <>
+      <ToastContainer />
       {showLoginForm && <Login setShowLoginForm={setShowLoginForm} />}
       <Navbar setShowLoginForm={setShowLoginForm} />
       <Routes>

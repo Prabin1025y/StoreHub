@@ -35,7 +35,6 @@ const listProducts = async (req, res) => {
 const removeProduct = async (req, res) => {
     try {
         const productToBeRemoved = await productModel.findById(req.body.id);
-        console.log(req.body.id);
         
         fs.unlink(`uploads/${productToBeRemoved.image}`, ()=>{});
 

@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   const url = "http://localhost:3000";
   return (
-    <div>
+    <div className='font-outfit'>
       <ToastContainer />
       <Navbar />
       <hr className='border-none h-[1px] bg-red-500' />

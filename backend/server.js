@@ -2,6 +2,8 @@ import express, { Router } from "express";
 import cors from 'cors';
 import { ConnectToDB } from "./config/db.js";
 import productRouter from "./routes/productRoute.js";
+import userRouter from "./routes/userRoute.js";
+import "dotenv/config"
 
 
 
@@ -19,6 +21,7 @@ ConnectToDB();
 //router endpoints
 app.use("/api/product", productRouter);
 app.use("/images", express.static("uploads"));
+app.use("/api/user", userRouter);
 
 app.get('/', (req, res) => {
     res.send("Api working fine");

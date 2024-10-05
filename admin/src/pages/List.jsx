@@ -38,13 +38,13 @@ const List = ({ url }) => {
 
   return (
     <div className='p-5 flex flex-col items-center w-[80%]'>
-      <p>All Items available in the store:</p>
+      <p className='p-3 text-2xl'>All Items available in the store:</p>
       <div className='grid grid-cols-5'>
-        <p className='border border-orange-900 bg-orange-300 font-bold w-48 text-center'>image</p>
-        <p className='border border-orange-900 bg-orange-300 font-bold w-48 text-center'>product Name</p>
-        <p className='border border-orange-900 bg-orange-300 font-bold w-48 text-center'>price</p>
-        <p className='border border-orange-900 bg-orange-300 font-bold w-48 text-center'>description</p>
-        <p className='border border-orange-900 bg-orange-300 font-bold w-48 text-center'>Action</p>
+        <p className=' py-2 my-2 border border-orange-900 bg-orange-300 font-bold w-48 text-center'>image</p>
+        <p className=' py-2 my-2 border border-orange-900 bg-orange-300 font-bold w-48 text-center'>product Name</p>
+        <p className=' py-2 my-2 border border-orange-900 bg-orange-300 font-bold w-48 text-center'>price</p>
+        <p className=' py-2 my-2 border border-orange-900 bg-orange-300 font-bold w-48 text-center'>description</p>
+        <p className=' py-2 my-2 border border-orange-900 bg-orange-300 font-bold w-48 text-center'>Action</p>
       </div>
 
       {products &&
