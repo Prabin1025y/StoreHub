@@ -10,6 +10,12 @@ const StoreContextProvider = (props) => {
     const [cartItems, setCartItems] = useState({});
     const [token, setToken] = useState("");
 
+    useEffect(() => {
+        if(localStorage.getItem("token"))
+            setToken(localStorage.getItem("token"));
+    }, [])
+    
+
     const getTotalCartAmount = () => {
         let totalCartAmount = 0;
         for (const itemId in cartItems) {

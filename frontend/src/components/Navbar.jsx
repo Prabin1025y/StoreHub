@@ -1,12 +1,24 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SVG } from '../assets/assets';
 import { StoreContext } from '../Context/StoreContext';
+import { toast } from "react-toastify";
 
 const Navbar = ({ setShowLoginForm }) => {
 
+    const { token, setToken } = useContext(StoreContext);
     const [activePage, setactivePage] = useState("home");
     const { getTotalCartAmount } = useContext(StoreContext);
+
+    const navigate = useNavigate();
+
+    const Logout = () => {
+        localStorage.removeItem("token");
+        setToken("");
+        toast.success("Logged Out.");
+        navigate("/");
+    }
+
     return (
         <div className='flex w-screen justify-between py-12 px-3 sm:px-10 lg:px-32 2xl:px-52 sticky top-0 bg-white z-10'>
             <Link to="/">
@@ -29,7 +41,20 @@ const Navbar = ({ setShowLoginForm }) => {
                 <Link to="/cart"><img className='cursor-pointer size-5 md:size-9' src={SVG.cart} alt="cart" /></Link>
                 <img className='cursor-pointer size-5 md:size-9' src={SVG.search} alt="search" />
                 {getTotalCartAmount() !== 0 && <div className='size-1 md:size-2 animate-bounce bg-rose-500 rounded-full absolute top-2 md:top-0 left-4 md:left-8'></div>}
-                <button className='text-xs text-nowrap md:text-md px-5 py-2 border-rose-900 border rounded-full text-rose-900 font-medium transition-all duration-300 hover:bg-rose-100' onClick={() => setShowLoginForm(true)}>Sing Up</button>
+
+                {!token ?
+                    <button className='text-xs text-nowrap md:text-md px-5 py-2 border-rose-900 border rounded-full text-rose-900 font-medium transition-all duration-300 hover:bg-rose-100' onClick={() => setShowLoginForm(true)}>Sing Up</button>
+                    : <div className='relative group'>
+                        <img className='size-8' src={SVG.profile} alt="profile" />
+                        <div className='absolute group-hover:scale-100 bg-rose-50 px-4 border rounded-lg w-32 right-0 scale-0 transition'>
+                            <ul>
+                                <li onClick={Logout} className='cursor-pointer hover:text-rose-500 flex gap-3 my-3'><img src={SVG.logout} alt="log out" /> Log Out</li>
+                                <hr className=' border-rose-200 border' />
+                                <li className='cursor-pointer hover:text-rose-500 flex gap-3 my-3'><img src={SVG.order} alt="order" />Orders</li>
+                            </ul>
+                        </div>
+                    </div>
+                }
             </div>
         </div>
     )

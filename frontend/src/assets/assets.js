@@ -10,6 +10,9 @@ import x from '/svg/X.svg';
 import add_green_duo from '/svg/add_green_duo.svg';
 import subtract_red_duo from '/svg/subtract_red_duo.svg';
 import empty_cart from '/svg/empty_cart.svg';
+import profile from '/svg/profile.svg' 
+import logout from '/svg/logout.svg' 
+import order from '/svg/order.svg' 
 
 import four_star from '/images/4star.png';
 import play_store from '/images/playstore.png';
@@ -29,7 +32,10 @@ export const SVG = {
     x,
     add_green_duo,
     subtract_red_duo,
-    empty_cart
+    empty_cart,
+    profile,
+    logout,
+    order
 }
 
 export const Images = {
