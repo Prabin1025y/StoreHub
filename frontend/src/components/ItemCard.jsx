@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { StoreContext } from '../Context/StoreContext';
 import { Images, SVG } from '../assets/assets';
 
-const ItemCard = ({ _id, name, image, description, price }) => {
+const ItemCard = ({ _id, productName, image, description, price }) => {
 
 
     const { cartItems, addCartItem, removeCartItems } = useContext(StoreContext);
@@ -20,7 +20,7 @@ const ItemCard = ({ _id, name, image, description, price }) => {
                 }
             </div>
             <div className='flex items-center px-6 py-3 text-2xl font-medium text-rose-950 justify-between'>
-                <h3>{name}</h3>
+                <h3>{productName}</h3>
                 <img className='h-8' src={Images.four_star} alt="" />
             </div>
             <div className='flex flex-grow flex-col justify-between gap-1'>

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
-  const { storeItems, cartItems, addCartItem, removeCartItems, getTotalCartAmount } = useContext(StoreContext);
+  const { storeItems, cartItems, addCartItem, removeCartItems, getTotalCartAmount, url } = useContext(StoreContext);
   const navigate = useNavigate();
 
   let deliveryCharge;
@@ -32,8 +32,8 @@ const Cart = () => {
         if (cartItems[item._id] > 0) {
           return (<div key={Date.now() + index}>
             <div className='text-[10px] sm:text-sm md:text-lg font-roboto grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center mx-10 lg:mx-32 2xl:mx-52 my-2 text-rose-800'>
-              <img className='size-10 object-cover' src={item.image} alt={item.name} />
-              <p className=''>{item.name}</p>
+              <img className='size-10 object-cover' src={url + "/images/" + item.image} alt={item.name} />
+              <p className=''>{item.productName}</p>
               <p className=''>${item.price}</p>
               <p className=''>{cartItems[item._id]}</p>
               <p className=''>${(item.price * cartItems[item._id]).toFixed(2)}</p>
