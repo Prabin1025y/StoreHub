@@ -50,7 +50,11 @@ const Navbar = ({ setShowLoginForm }) => {
                             <ul>
                                 <li onClick={Logout} className='cursor-pointer hover:text-rose-500 flex gap-3 my-3'><img src={SVG.logout} alt="log out" /> Log Out</li>
                                 <hr className=' border-rose-200 border' />
-                                <li className='cursor-pointer hover:text-rose-500 flex gap-3 my-3'><img src={SVG.order} alt="order" />Orders</li>
+                                <Link to="/order-management">
+                                    <li className='cursor-pointer hover:text-rose-500 flex gap-3 my-3'>
+                                        <img src={SVG.order} alt="order" />Orders
+                                    </li>
+                                </Link>
                             </ul>
                         </div>
                     </div>

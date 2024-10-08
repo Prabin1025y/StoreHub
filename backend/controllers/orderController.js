@@ -21,10 +21,9 @@ const placeOrder = async (req, res) => {
             }
         });
 
-        if (req.body.payment === "cash-on-delivery")
-        {
+        if (req.body.payment === "cash-on-delivery") {
             console.log("going");
-            
+
             newOrder['payment-details'] = {}
         }
 
@@ -40,4 +39,35 @@ const placeOrder = async (req, res) => {
     }
 };
 
-export { placeOrder };
+const getOrders = async (req, res) => {
+    try {
+
+        const orders = await orderModel.find({ userId: req.body.userId });
+
+        res.json({ success: true, orderItems: orders })
+
+
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "internal server error!" });
+    }
+}
+
+const deleteOrder = async (req, res) => {
+
+    // const orders = await orderModel.find({ userId: req.body.userId });
+    try {
+        await orderModel.findByIdAndDelete(req.body.orderId);
+        // console.log(req.body.orderIdD);
+        
+        res.json({ success: true });
+
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Internal Server Error!" });
+
+    }
+
+}
+
+export { placeOrder, getOrders, deleteOrder };

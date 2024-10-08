@@ -82,11 +82,16 @@ const PlaceOrder = () => {
       formData.append("image", image);
     }
 
-    await axios.post(url + "/api/order/order", formData, { headers: { token }, "Content-Type": "multipart/form-data" });
+    const response = await axios.post(url + "/api/order/order", formData, { headers: { token }, "Content-Type": "multipart/form-data" });
 
-    setCartItems({});
-    toast.success("Order Placed Successfully");
-    navigate("/");
+    if (!response.data.success) {
+      toast.error(response.data.message);
+    }
+    else {
+      setCartItems({});
+      toast.success("Order Placed Successfully");
+      navigate("/");
+    }
 
   }
 

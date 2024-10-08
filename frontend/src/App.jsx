@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import Login from './components/Login'
 import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
+import Orders from './pages/Orders'
 
 function App() {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -20,6 +21,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/order' element={<PlaceOrder />} />
+        <Route path='/order-management' element={<Orders />} />
       </Routes>
       <Footer />
     </>
