@@ -114,7 +114,7 @@ const Add = () => {
             </select>
           </div>
           <div className='flex flex-col md:w-1/2 my-5 gap-1'>
-            <label htmlFor="price" className='font-bold'> Product Name:</label>
+            <label htmlFor="price" className='font-bold'> Price:</label>
             <input onChange={OnChangeHandler} value={productData.price} type="number" min={0} name='price' id='price' placeholder='eg:-50' required className='border border-black rounded-md px-4 py-2' />
           </div>
           <div></div>

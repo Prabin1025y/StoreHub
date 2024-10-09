@@ -25,7 +25,7 @@ const ItemCard = ({ _id, productName, image, description, price }) => {
             </div>
             <div className='flex flex-grow flex-col justify-between gap-1'>
                 <p className='px-6 py-3 text-rose-900'>{description}</p>
-                <h3 className='px-6 font-medium text-green-500 text-xl'>${price}</h3>
+                <h3 className='px-6 font-medium text-green-500 text-xl'>Rs. {price}</h3>
             </div>
         </div>
     )

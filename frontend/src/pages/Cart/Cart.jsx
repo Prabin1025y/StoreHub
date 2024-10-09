@@ -9,7 +9,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   let deliveryCharge;
-  deliveryCharge = getTotalCartAmount() === 0 ? 0 : 2;
+  deliveryCharge = getTotalCartAmount() === 0 ? 0 : 120;
   return (<>
     {getTotalCartAmount() === 0
       ? <div className='text-3xl text-rose-900 font-roboto mx-10 lg:mx-32 2xl:mx-52 flex flex-col items-center'>
@@ -34,9 +34,9 @@ const Cart = () => {
             <div className='text-[10px] sm:text-sm md:text-lg font-roboto grid grid-cols-[1fr_1.5fr_1fr_1fr_1fr_0.5fr] items-center mx-10 lg:mx-32 2xl:mx-52 my-2 text-rose-800'>
               <img className='size-10 object-cover' src={url + "/images/" + item.image} alt={item.name} />
               <p className=''>{item.productName}</p>
-              <p className=''>${item.price}</p>
+              <p className=''>Rs.{item.price}</p>
               <p className=''>{cartItems[item._id]}</p>
-              <p className=''>${(item.price * cartItems[item._id]).toFixed(2)}</p>
+              <p className=''>Rs.{(item.price * cartItems[item._id]).toFixed(2)}</p>
               <div className='flex gap-2'>
                 <img onClick={() => addCartItem(item._id)} className='size-3 sm:size-6 cursor-pointer' src={SVG.add_green_duo} alt="" />
                 <img onClick={() => removeCartItems(item._id)} className='size-3 sm:size-6 cursor-pointer' src={SVG.subtract_red_duo} alt="" />
@@ -52,17 +52,17 @@ const Cart = () => {
         <h2 className='my-3 font-bold text-2xl text-rose-900'>Cart Total</h2>
         <div className='my-2 text-rose-800 flex justify-between'>
           <p>Subtotal</p>
-          <p className='font-medium'>${getTotalCartAmount().toFixed(2)}</p>
+          <p className='font-medium'>Rs.{getTotalCartAmount().toFixed(2)}</p>
         </div>
         <hr />
         <div className=' my-2 text-rose-800 flex justify-between'>
           <p>Delivery Charge</p>
-          <p className='font-medium'>${deliveryCharge}</p>
+          <p className='font-medium'>Rs.{deliveryCharge}</p>
         </div>
         <hr />
         <div className=' my-2 text-rose-800 flex justify-between'>
           <p className='font-medium'>Total</p>
-          <p className='font-medium'>${(getTotalCartAmount() + deliveryCharge).toFixed(2)}</p>
+          <p className='font-medium'>Rs.{(getTotalCartAmount() + deliveryCharge).toFixed(2)}</p>
         </div>
         <hr />
         <button onClick={() => getTotalCartAmount() === 0 ? alert("The cart is empty") : navigate("/order")} className=' relative left-1/2 -translate-x-1/2 my-5  p-2 rounded-md hover:scale-105 transition-all duration-300 bg-rose-800 text-white w-1/2'>Checkout</button>

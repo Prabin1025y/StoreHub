@@ -82,12 +82,15 @@ const Orders = () => {
             }
             {
                 orderData.map((eachOrder, index) => {
+
                     return (
                         <div key={`${Date.now() + "hello" + index}`}>
                             <div className='text-[10px] sm:text-sm md:text-lg font-roboto grid grid-cols-[1fr_1.5fr_1fr_0.5fr_1fr_1.5fr_1fr] items-center mx-10 lg:mx-32 2xl:mx-52 my-2 text-rose-800'>
                                 <div className='flex flex-col'>
                                     {
                                         Object.keys(eachOrder.orderItems).map((key) => {
+                                            if (eachOrder.orderItems[key] == 0)
+                                                return;
                                             return (
                                                 <img key={`${Date.now() + "world" + key}`} className='size-10 object-cover my-1' src={url + "/images/" + storeItemData[key].image} alt="hello" />
                                             )
@@ -97,6 +100,8 @@ const Orders = () => {
                                 <div>
                                     {
                                         Object.keys(eachOrder.orderItems).map((key) => {
+                                            if (eachOrder.orderItems[key] == 0)
+                                                return;
                                             return (
                                                 <p key={`${Date.now() + "world" + key}`}> {storeItemData[key].productName} </p>
                                             )
@@ -106,8 +111,10 @@ const Orders = () => {
                                 <div className=''>
                                     {
                                         Object.keys(eachOrder.orderItems).map((key) => {
+                                            if (eachOrder.orderItems[key] == 0)
+                                                return;
                                             return (
-                                                <p key={`${Date.now() + "world" + key}`}> {storeItemData[key].price} </p>
+                                                <p key={`${Date.now() + "world" + key}`}>Rs. {storeItemData[key].price} </p>
                                             )
                                         })
                                     }
@@ -115,12 +122,14 @@ const Orders = () => {
                                 <div className=''>
                                     {
                                         Object.keys(eachOrder.orderItems).map((key) => {
+                                            if (eachOrder.orderItems[key] == 0)
+                                                return;
                                             return (
                                                 <p key={`${Date.now() + "world" + key}`}> {eachOrder.orderItems[key]} </p>)
                                         })
                                     }
                                 </div>
-                                <div>{eachOrder.amount}</div>
+                                <div>Rs. {eachOrder.amount}</div>
                                 <div className=''>{eachOrder.status}</div>
                                 <div className='flex gap-2'>
                                     <img onClick={deleteOrder} id={eachOrder._id} src={SVG.cancel} className='cursor-pointer' alt="image" />

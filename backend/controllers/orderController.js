@@ -53,13 +53,41 @@ const getOrders = async (req, res) => {
     }
 }
 
+const getOrdersAdmin = async (req, res) => {
+    try {
+
+        const orders = await orderModel.find({status:{$ne: "canceled"}});
+
+        res.json({ success: true, orderItems: orders })
+
+
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "internal server error!" });
+    }
+}
+
+const updateOrder = async (req, res) => {
+    try {
+        const { orderId, update } = req.body;
+
+        await orderModel.findByIdAndUpdate(orderId, update);
+
+        res.json({ success: true });
+
+    } catch (error) {
+        console.log(error);
+        res.json({ success: false, message: "Inrernal Server Error!" });
+    }
+}
+
 const deleteOrder = async (req, res) => {
 
     // const orders = await orderModel.find({ userId: req.body.userId });
     try {
         await orderModel.findByIdAndDelete(req.body.orderId);
         // console.log(req.body.orderIdD);
-        
+
         res.json({ success: true });
 
     } catch (error) {
@@ -70,4 +98,4 @@ const deleteOrder = async (req, res) => {
 
 }
 
-export { placeOrder, getOrders, deleteOrder };
+export { placeOrder, getOrders, deleteOrder, getOrdersAdmin, updateOrder };

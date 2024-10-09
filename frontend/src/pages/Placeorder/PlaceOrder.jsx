@@ -15,9 +15,9 @@ const PlaceOrder = () => {
 
   const navigate = new useNavigate();
 
-  let deliveryCharge = getTotalCartAmount() === 0 ? 0 : 2;
+  let deliveryCharge = getTotalCartAmount() === 0 ? 0 : 120;
   // deliveryCharge =
-  let codCharge = paymentMethod === "cash-on-delivery" ? 2 : 0;
+  let codCharge = paymentMethod === "cash-on-delivery" ? 30 : 0;
   let totalAmount = getTotalCartAmount() + deliveryCharge + codCharge;
 
   const [image, setImage] = useState(false);
@@ -183,26 +183,26 @@ const PlaceOrder = () => {
             <h2 className='my-3 font-bold text-2xl text-rose-900'>Cart Total</h2>
             <div className='my-2 text-rose-800 flex justify-between'>
               <p>Subtotal</p>
-              <p className='font-medium'>${getTotalCartAmount().toFixed(2)}</p>
+              <p className='font-medium'>Rs.{getTotalCartAmount().toFixed(2)}</p>
             </div>
             <hr />
             <div className=' my-2 text-rose-800 flex justify-between'>
               <p>Delivery Charge</p>
-              <p className='font-medium'>${deliveryCharge}</p>
+              <p className='font-medium'>Rs.{deliveryCharge}</p>
             </div>
             <hr />
             {paymentMethod !== "online-payment" &&
               <>
                 <div className=' my-2 text-rose-800 flex justify-between'>
                   <p>COD Charge</p>
-                  <p className='font-medium'>${codCharge}</p>
+                  <p className='font-medium'>Rs.{codCharge}</p>
                 </div>
                 <hr />
               </>
             }
             <div className=' my-2 text-rose-800 flex justify-between'>
               <p className='font-medium'>Total</p>
-              <p className='font-medium'>${(totalAmount).toFixed(2)}</p>
+              <p className='font-medium'>Rs.{(totalAmount).toFixed(2)}</p>
             </div>
             <hr />
             <button type='submit' className='font-medium relative left-1/2 -translate-x-1/2 my-5  p-2 rounded-md hover:scale-105 transition-all duration-300 bg-rose-800 text-white w-1/2'>Place Order</button>
